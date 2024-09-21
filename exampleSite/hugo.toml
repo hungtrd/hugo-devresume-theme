@@ -1,38 +1,23 @@
 # Page settings
 
-baseURL = "http://example.org/"
+baseURL = "https://example.com/"
 languageCode = "en"
 title = ""
-theme = "hugo-devresume-theme"
+theme = "devresume"
 googleAnalytics = "UA-XXXXXXX-Y"
-
-
-
-
-
 
 [params]
     author = "CowboySmall"
     description = "DevResume - Bootstrap 4 Resume/CV Template For Software Developers"
 
-
     primaryColor = "#54B689"
     textPrimaryColor = "#292929"
-
-
-
 
     [params.profile]
         enable = true
         name = "Simon Doe"
         tagline = "Senior Software Engineer"
         avatar = "avatar.png"
-
-
-
-
-
-
 
     [params.contact]
         enable = true
@@ -50,12 +35,6 @@ googleAnalytics = "UA-XXXXXXX-Y"
         icon = "fas fa-globe"
         url = "#"
         text = "www.yourwebsite.com"
-
-
-
-
-
-
 
     [params.skills]
         enable = true
@@ -88,13 +67,6 @@ googleAnalytics = "UA-XXXXXXX-Y"
         [[params.skills.list.items]]
         details = "Good time management"
 
-
-
-
-
-
-
-
     [params.education]
         enable = true
 
@@ -106,13 +78,6 @@ googleAnalytics = "UA-XXXXXXX-Y"
         degree = "BSc Maths and Physics"
         university = "Imperial College London"
         dates = "2007 - 2010"
-
-
-
-
-
-
-
 
     [params.awards]
         enable = true
@@ -126,13 +91,6 @@ googleAnalytics = "UA-XXXXXXX-Y"
         body = "Oracle Aenean"
         date = "2017"
 
-
-
-
-
-
-
-
     [params.languages]
         enable = true
 
@@ -142,13 +100,6 @@ googleAnalytics = "UA-XXXXXXX-Y"
         [[params.languages.list]]
         name = "Spanish"
         level = "Professional"
-
-
-
-
-
-
-
 
     [params.interests]
         enable = true
@@ -162,23 +113,9 @@ googleAnalytics = "UA-XXXXXXX-Y"
         [[params.interests.list]]
         name = "Travelling"
 
-
-
-
-
-
-
-
     [params.summary]
         enable = true
         text = "Summarise your career here. Donec quam felis, ultricies nec, pellentesque eu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.  Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh."
-
-
-
-
-
-
-
 
     [params.experience]
         enable = true
@@ -229,16 +166,6 @@ googleAnalytics = "UA-XXXXXXX-Y"
         company = "Startup"
         details = "Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
 
-
-
-
-
-
-
-
-
-
-
     [params.projects]
         enable = true
 
@@ -257,15 +184,6 @@ googleAnalytics = "UA-XXXXXXX-Y"
         meta = "Open Source"
         tagline = "You can use this section for your side projects. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim."
 
-
-
-
-
-
-
-
-
-
     [params.information]
         enable = true
 
@@ -279,13 +197,6 @@ googleAnalytics = "UA-XXXXXXX-Y"
         [[params.information.list]]
         title = "Interests"
         details = "Climbing, Snowboarding, Photography, Travelling"
-
-
-
-
-
-
-
 
     [params.social]
         enable = true
@@ -302,8 +213,4 @@ googleAnalytics = "UA-XXXXXXX-Y"
         icon = "fab fa-twitter-square"
         url = "//twitter.com/username"
         title = "@username"
-
-
-
-
 

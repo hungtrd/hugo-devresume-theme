@@ -3,19 +3,9 @@
 This is a Hugo port of [DevResume](//github.com/xriley/DevResume-Theme) - a great looking resume/CV template 
 designed for developers by Xiaoying Riley.
 
-
-
-
-
-
 ## Screenshot
 
 ![DevResume screenshot](https://raw.githubusercontent.com/cowboysmall-tools/hugo-devresume-theme/master/images/screenshot.png)
-
-
-
-
-
 
 ## Features
 
@@ -32,19 +22,9 @@ designed for developers by Xiaoying Riley.
 
 - Google Analytics
 
-
-
-
-
-
 ## Demo
 
 You can see it in action on [Hugo Themes site](http://themes.gohugo.io/theme/hugo-devresume-theme/). 
-
-
-
-
-
 
 ## Contents
 
@@ -56,23 +36,12 @@ You can see it in action on [Hugo Themes site](http://themes.gohugo.io/theme/hug
 - [Contributing](#contributing)
 - [License](#license)
 
-
-
-
-
-
 ## Installation
 
 Within the root of your Hugo project execute the following:
 
     $ cd themes
     $ git clone https://github.com/cowboysmall-tools/hugo-devresume-theme.git
-
-
-
-
-
-
 
 ## Getting Started
 
@@ -81,8 +50,8 @@ After successful installation as a minimum you need to take the following steps:
 ### Setup
 
 Go to [`exampleSite`](//github.com/cowboysmall-tools/hugo-devresume-theme/tree/master/exampleSite) and copy 
-[`config.toml`](//github.com/cowboysmall-tools/hugo-devresume-theme/blob/master/exampleSite/config.toml) 
-to the root of your site. Open `config.toml` and add your relevant information.
+[`hugo.toml`](//github.com/cowboysmall-tools/hugo-devresume-theme/blob/master/exampleSite/config.toml) 
+to the root of your site. Open `hugo.toml` and add your relevant information.
 
 ### Viewing
 
@@ -101,21 +70,10 @@ To generate your site in the `public` folder, execute the following:
 within the root of your project.
 
 
-
-
-
-
-
 ## Contributing
 
 Post bugs and contributions to the [issue tracker](//github.com/cowboysmall-tools/hugo-devresume-theme/issues). 
 Or make a [pull request](//github.com/cowboysmall-tools/hugo-devresume-theme/pulls).
-
-
-
-
-
-
 
 ## License
 
