@@ -1,0 +1,26 @@
+{{ if hugo.IsMultilingual }}
+<div class="btn-group btn-group-toggle language-switcher" data-toggle="buttons">
+  {{ range $.Site.Home.AllTranslations }}
+  <label class="btn btn-secondary {{ if eq .Language $.Site.Language }}active{{ end }}">
+    <input type="radio" name="options" id="{{ .RelPermalink }}" {{ if eq .Language $.Site.Language }}checked{{ end }}
+      onclick="switchLanguage('{{ .RelPermalink }}')"> {{ .Language.LanguageName }} {{ .Language }}
+  </label>
+  {{ end }}
+</div>
+
+<style>
+  .language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+</style>
+
+<!-- JavaScript to switch languages -->
+<script>
+  function switchLanguage(lang) {
+    location.href = lang
+  }
+</script>
+{{ end }}
