@@ -10,7 +10,9 @@
 
 <body>
   <!-- Floating Button HTML -->
+  {{ if .Site.Params.floatingbutton.enable }}
   {{ partial "floating-button.html" . }}
+  {{ end }}
 
   <div class="main-wrapper">
 

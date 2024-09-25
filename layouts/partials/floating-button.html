@@ -1,10 +1,18 @@
-{{ if hugo.IsMultilingual }}
 <div class="btn-group btn-group-toggle btn-group-sm language-switcher" data-toggle="buttons">
+  {{ if hugo.IsMultilingual }}
   {{ range $.Site.Home.AllTranslations }}
   <label class="btn btn-outline-maincolor btn-sm {{ if eq .Language $.Site.Language }}active{{ end }}">
     <input type="radio" id="{{ .RelPermalink }}" {{ if eq .Language $.Site.Language }}checked disabled{{ end }}
       name="options" onclick="switchLanguage('{{ .RelPermalink }}')">{{ .Language }}
   </label>
+  {{ end }}
+  {{ end }}
+
+  {{ if .Site.Params.floatingbutton.downloadButton }}
+  <button class="btn btn-outline-maincolor btn-sm" data-toggle="tooltip" data-placement="bottom" data-delay="0"
+    title="Download CV">
+    <i class="fa fa-download fa-1x" data-fa-transform=""></i>
+  </button>
   {{ end }}
 </div>
 
@@ -14,4 +22,3 @@
     location.href = lang
   }
 </script>
-{{ end }}
