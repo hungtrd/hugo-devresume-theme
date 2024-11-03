@@ -22,8 +22,9 @@
     location.href = lang
   }
 
-  //  JavaScript to generate PDF
-  document.getElementById('generatePDF').addEventListener('click', function () {
+  document.getElementById('generatePDF').addEventListener('click', downloadCVByJsPDF);
+
+  function downloadCVByJsPDF() {
     var captureElement = document.getElementById('capture');
 
     html2canvas(captureElement).then(function (canvas) {
@@ -36,6 +37,12 @@
       var pageHeight = 297;
       var imgHeight = canvas.height * imgWidth / canvas.width;
       var heightLeft = imgHeight;
+
+      console.log("canvas.height", canvas.height);
+      console.log("canvas.width", canvas.width);
+      console.log("img width", imgWidth);
+      console.log("img height", imgHeight);
+      console.log("canvas", canvas);
 
       var position = 0;
 
@@ -50,5 +57,195 @@
       }
       pdf.save(document.title);
     });
-  });
+  }
+
+  function downloadCVByHtml2Pdf() {
+    var element = document.getElementById('capture');
+    var opt = {
+      margin: [5, 0],
+      filename: document.title,
+      image: {type: 'jpeg', quality: 1},
+      // html2canvas: {scale: 2},
+      // html2canvas: {scale: 1, foreignObjectRendering: true},
+      html2canvas: {
+        // scale: 2.5, // zoom in zoom out
+        // allowTaint: true,
+        logging: true,
+        x: 100,
+        y: 0,
+        // width: 1044,
+        // height: 297,
+        // windowWidth: 1500,
+        // foreignObjectRendering: true
+      },
+      // jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'}
+      jsPDF: {
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+        // putOnlyUsedFonts: true,
+        // floatPrecision: "smart" // or "smart", default is 16
+      }
+    };
+
+    // New Promise-based usage:
+    html2pdf().set(opt).from(element).save();
+  }
+
+  function directHTML() {
+    var element = document.getElementById('capture');
+    var opt = {
+      html2canvas: {foreignObjectRendering: true},
+    }
+    html2pdf(element, opt);
+  }
+
+  //  JavaScript to generate PDF
+  // document.getElementById('generatePDF').addEventListener('click', function () {
+  //   var captureElement = document.getElementById('capture');
+  //
+  //   html2canvas(captureElement).then(function (canvas) {
+  //     const {jsPDF} = window.jspdf;
+  //
+  //     var imgData = canvas.toDataURL('image/png');
+  //     var pdf = new jsPDF('p', 'mm', 'a4');
+  //
+  //     var imgWidth = 210;
+  //     var pageHeight = 297;
+  //     var imgHeight = canvas.height * imgWidth / canvas.width;
+  //     var heightLeft = imgHeight;
+  //
+  //     var position = 0;
+  //
+  //     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+  //     heightLeft -= pageHeight;
+  //
+  //     while (heightLeft >= 0) {
+  //       position = heightLeft - imgHeight;
+  //       pdf.addPage();
+  //       pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+  //       heightLeft -= pageHeight;
+  //     }
+  //     pdf.save(document.title);
+  //   });
+  // });
+
+  // document.getElementById('generatePDF').addEventListener('click', function () {
+  //   var captureElement = document.getElementById('capture');
+  //
+  //   html2canvas(captureElement).then(function (canvas) {
+  //     const {jsPDF} = window.jspdf;
+  //
+  //     var imgData = canvas.toDataURL('image/png');
+  //     var pdf = new jsPDF('p', 'mm', 'a4');
+  //
+  //     var imgWidth = 210; // Chiều rộng ảnh (mm)
+  //     var pageHeight = 297; // Chiều cao của trang A4 (mm)
+  //     var footerHeight = 15; // Chiều cao khoảng trống cho footer (mm)
+  //     var imgHeight = canvas.height * imgWidth / canvas.width; // Chiều cao ảnh dựa trên tỷ lệ
+  //     var heightLeft = imgHeight;
+  //
+  //     var position = 0; // Vị trí bắt đầu của hình ảnh trên trang
+  //     var pageNumber = 1; // Số trang bắt đầu từ 1
+  //
+  //     // Function để thêm footer
+  //     function addFooter(pdf, pageNumber) {
+  //       const paddingBottom = 10; // Padding dưới cho footer
+  //       const domain = window.location.hostname; // Lấy domain hiện tại
+  //       pdf.setFontSize(10); // Đặt kích thước font
+  //       pdf.text(domain, 10, pageHeight - paddingBottom); // Hiển thị domain ở bên trái
+  //       pdf.text('Page ' + pageNumber, imgWidth - 20, pageHeight - paddingBottom); // Hiển thị số trang ở bên phải
+  //     }
+  //
+  //     // Render trang đầu tiên
+  //     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight - footerHeight); // Trừ footerHeight
+  //     addFooter(pdf, pageNumber); // Thêm footer cho trang đầu
+  //     heightLeft -= pageHeight - footerHeight;
+  //
+  //     // Render các trang tiếp theo nếu có
+  //     while (heightLeft >= 0) {
+  //       position = heightLeft - imgHeight + footerHeight; // Điều chỉnh vị trí cho trang tiếp theo
+  //       pdf.addPage();
+  //       pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight - footerHeight); // Trừ footerHeight
+  //       pageNumber++;
+  //       addFooter(pdf, pageNumber); // Thêm footer cho mỗi trang
+  //       heightLeft -= pageHeight - footerHeight;
+  //     }
+  //
+  //     pdf.save(document.title); // Lưu file PDF
+  //   });
+  // });
+
+  // bi chong cheo footer
+  // document.getElementById('generatePDF').addEventListener('click', function () {
+  //   var captureElement = document.getElementById('capture');
+  //
+  //   html2canvas(captureElement).then(function (canvas) {
+  //     const {jsPDF} = window.jspdf;
+  //
+  //     var imgData = canvas.toDataURL('image/png');
+  //     var pdf = new jsPDF('p', 'mm', 'a4');
+  //
+  //     var imgWidth = 210; // Chiều rộng ảnh
+  //     var pageHeight = 297; // Chiều cao của trang A4 (mm)
+  //     var imgHeight = canvas.height * imgWidth / canvas.width; // Chiều cao ảnh tính toán dựa trên tỷ lệ ảnh
+  //     var heightLeft = imgHeight; // Đoạn còn lại của ảnh
+  //
+  //     var position = 0; // Vị trí của hình ảnh trên trang
+  //     var pageNumber = 1; // Số trang bắt đầu
+  //
+  //     // Function để thêm footer
+  //     function addFooter(pdf, pageNumber) {
+  //       const paddingBottom = 10; // Padding phía dưới của trang
+  //       const domain = window.location.hostname; // Lấy domain hiện tại
+  //       pdf.setFontSize(10); // Kích thước font chữ cho footer
+  //       pdf.text(domain, 10, pageHeight - paddingBottom); // Domain ở góc dưới bên trái
+  //       pdf.text('Page ' + pageNumber, imgWidth - 20, pageHeight - paddingBottom); // Số trang ở góc dưới bên phải
+  //     }
+  //
+  //     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+  //     addFooter(pdf, pageNumber);
+  //     heightLeft -= pageHeight;
+  //
+  //     while (heightLeft >= 0) {
+  //       position = heightLeft - imgHeight;
+  //       pdf.addPage();
+  //       pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+  //       pageNumber++;
+  //       addFooter(pdf, pageNumber);
+  //       heightLeft -= pageHeight;
+  //     }
+  //
+  //     pdf.save(document.title);
+  //   });
+  // });
+
+
+  // Javascript to generate PDF by html2pdf
+  // document.getElementById('generatePDF').addEventListener('click', function () {
+  //   var element = document.getElementById('capture');
+  //   var opt = {
+  //     margin: 1,
+  //     filename: document.title,
+  //     image: {type: 'jpeg', quality: 1},
+  //     // html2canvas: {scale: 2},
+  //     // html2canvas: {scale: 1, foreignObjectRendering: true},
+  //     html2canvas: {
+  //       width: 210,
+  //       height: 297,
+  //       // windowWidth: 1500
+  //     },
+  //     // jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'}
+  //     jsPDF: {
+  //       orientation: 'p',
+  //       unit: 'mm',
+  //       format: 'a4',
+  //       // putOnlyUsedFonts: true,
+  //       // floatPrecision: "smart" // or "smart", default is 16
+  //     }
+  //   };
+  //
+  //   // New Promise-based usage:
+  //   html2pdf().set(opt).from(element).save();
+  // });
 </script>

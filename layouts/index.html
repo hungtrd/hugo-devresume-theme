@@ -15,56 +15,69 @@
   {{ end }}
 
   <!-- <div id="capture" class="main-wrapper"> -->
+  <!-- <div class="main-wrapper d-flex flex-column justify-content-center align-items-center"> -->
+  <!---->
+  <!--   <div class="container px-0 my-5 mx-3 mx-lg-5 shadow-lg"> -->
+  <!---->
+  <!--     <article id="capture" class="resume-wrapper mx-auto theme-bg-light p-5"> -->
   <div class="main-wrapper">
 
     <div class="container px-3 px-lg-5">
 
-      <article id="capture" class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg">
+      <div class="capture-wrapper mx-auto theme-bg-light mb-5 my-5 shadow-lg">
+        <article id="capture" class="resume-wrapper p-5">
+          <!-- <div class=""> -->
+          <!---->
+          <!--   <div class=""> -->
+          <!---->
+          <!--     <div class=""> -->
+          <!--       <article id="capture" class=""> -->
 
-        {{ partial "header.html" . }}
+          {{ partial "header.html" . }}
 
-        <hr>
+          <hr>
 
-        {{ if .Site.Params.summary.enable }}
-        {{ partial "summary.html" . }}
-        {{ end }}
+          {{ if .Site.Params.summary.enable }}
+          {{ partial "summary.html" . }}
+          {{ end }}
 
-        <hr>
+          <hr>
 
-        <div class="resume-body">
+          <div class="resume-body">
 
-          <div class="row">
+            <div class="row">
 
-            <div class="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
+              <div class="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
 
-              {{ if .Site.Params.experience.enable }}
-              {{ partial "experience.html" . }}
-              {{ end }}
+                {{ if .Site.Params.experience.enable }}
+                {{ partial "experience.html" . }}
+                {{ end }}
 
-              {{ if .Site.Params.projects.enable }}
-              {{ partial "projects.html" . }}
-              {{ end }}
+                {{ if .Site.Params.projects.enable }}
+                {{ partial "projects.html" . }}
+                {{ end }}
 
-              {{ if .Site.Params.information.enable }}
-              {{ partial "information.html" . }}
-              {{ end }}
+                {{ if .Site.Params.information.enable }}
+                {{ partial "information.html" . }}
+                {{ end }}
 
-            </div><!--//resume-main-->
+              </div><!--//resume-main-->
 
-            {{ partial "sidebar.html" . }}
+              {{ partial "sidebar.html" . }}
 
-          </div><!--//row-->
+            </div><!--//row-->
 
-        </div><!--//resume-body-->
+          </div><!--//resume-body-->
 
-        <hr>
+          <hr>
 
-        {{ if .Site.Params.social.enable }}
-        {{ partial "social.html" . }}
-        {{ end }}
+          {{ if .Site.Params.social.enable }}
+          {{ partial "social.html" . }}
+          {{ end }}
 
-      </article>
+        </article>
 
+      </div><!--//resume-wrapper-->
     </div><!--//container-->
 
     {{ partial "footer.html" . }}

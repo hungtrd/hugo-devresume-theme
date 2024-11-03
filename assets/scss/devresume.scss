@@ -226,4 +226,6 @@ a.resume-link {
   }
 }
 
-
+.pdf-no-break {
+  page-break-inside: avoid !important;
+}
