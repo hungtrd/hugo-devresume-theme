@@ -16,7 +16,6 @@ textPrimaryColor = "#292929"
 
 [contact]
     enable = true
-    location = "Việt Nam"
 
     [[contact.list]]
     icon = "fas fa-phone-square"
@@ -30,6 +29,10 @@ textPrimaryColor = "#292929"
     icon = "fas fa-globe"
     url = "#"
     text = "www.example.com"
+    [[contact.list]]
+    icon = "fas fa-map-marker-alt"
+    url = "https://maps.app.goo.gl/r7uk47Hzc8Fojytj6"
+    text = "Hanoi, Vietnam"
 
 [skills]
     enable = true
